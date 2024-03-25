@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 
 import { revalidatePath } from "next/cache";
 import { api } from "../admin/add-product/page";
+import { env } from "@/lib/env";
 
 export default async function addToCart(productId: string) {
   try {
@@ -14,14 +15,14 @@ export default async function addToCart(productId: string) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          token: `${process.env.BEARER}${cookies().get("token")?.value}`,
+          token: `${env.BEARER}${cookies().get("token")?.value}`,
         },
         body: JSON.stringify({ pId: productId }),
       }));
     const respData = await resp.json();
     if (!respData.result)
       return { error: "Verfiy Your email To add Products to your Cart" };
-  } catch (error) {
+  } catch (error:any) {
     return { error: error.message };
   }
 
@@ -31,7 +32,7 @@ export default async function addToCart(productId: string) {
 export async function getCart() {
   const resp = await fetch(`${api}/cart`, {
     next: { revalidate: 0 },
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
@@ -60,7 +61,7 @@ export async function deleteCart(productId: string) {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      token: `${process.env.BEARER}${cookies().get("token")?.value}`,
+      token: `${env.BEARER}${cookies().get("token")?.value}`,
     },
     body: JSON.stringify({ pId: productId }),
   })
@@ -78,7 +79,7 @@ export async function clearCart(productId: string) {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      token: `${process.env.BEARER}${cookies().get("token")?.value}`,
+      token: `${env.BEARER}${cookies().get("token")?.value}`,
     },
   });
   revalidatePath("/cart");
@@ -92,7 +93,7 @@ export async function updateCart(productId: string, quantity: number) {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      token: `${process.env.BEARER}${cookies().get("token")?.value}`,
+      token: `${env.BEARER}${cookies().get("token")?.value}`,
     },
     body: JSON.stringify({ pId: productId, quantity: quantity }),
   })

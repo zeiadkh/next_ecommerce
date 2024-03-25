@@ -21,7 +21,7 @@ export default async function resetPass(formData: FormData){
               })
               const respData = await response.json();
               if(!respData.success) return {error: respData.message}
-        } catch (error) {
+        } catch (error:any) {
             return {error: error.message}
         }
         //   console.log(response)

@@ -4,7 +4,7 @@ import  {ProductType}  from "../components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import Pagination from "../components/Pagination";
-import CategoryProducts from "./category/[id]/page";
+// import CategoryProducts from "./category/[id]/page";
 export interface HomeProps {
   searchParams: { page: string; limit: string };
 }
@@ -14,7 +14,7 @@ type Category = {
 
   name: string;
   _id: string;
-
+  
 };
 
 async function getAllProductsNumber(): Promise<number> {
@@ -23,8 +23,8 @@ async function getAllProductsNumber(): Promise<number> {
   return data.message.length;
 }
 
-export async function CategoriesTabs({ id }: { id: string }) {
-  async function getCategories(): Promise<Category[]> {
+export async function CategoriesTabs({ id="" }: { id: string }) {
+  async function getCategories(): Promise<Category[] | any> {
     try {
       const data = await fetch(`${api}/category`, {
         next: { revalidate: 0 },
@@ -32,7 +32,7 @@ export async function CategoriesTabs({ id }: { id: string }) {
       const respData = await data.json();
       if (!respData.sucess) return { error: respData.message };
       return respData.results;
-    } catch (error) {
+    } catch (error: any) {
       return { error: error.message };
     }
   }
@@ -44,7 +44,7 @@ export async function CategoriesTabs({ id }: { id: string }) {
       className="m-8 tabs-boxed tabs flex flex-wrap justify-evenly "
     >
       
-      {categories?.map((cat) => (
+      {categories?.map((cat: Category) => (
         <Link
           key={cat?._id}
           href={`/category/${cat?._id}`}
@@ -69,7 +69,7 @@ export default async function Home({
   const pageSize = parseInt(limit);
   const heroCount = 1;
   const data = await fetch(
-    `${api}/product/all/?page=${page}&limit=${pageSize}`,
+    `${api}/product/all/?page=${page}&limit=${pageSize + (currentPage === 1 ?1 : 0)}`,
   ).then((res) => res.json());
   const totalItemCount = await getAllProductsNumber();
   const totalPages = Math.ceil((totalItemCount - heroCount) / pageSize);
@@ -93,7 +93,7 @@ export default async function Home({
   return (
     <>
 
-      <CategoriesTabs id={""} />
+      <CategoriesTabs id="" />
       
       {currentPage === 1 && (
         <div className="hero mb-6 mt-4 min-h-screen rounded-lg bg-base-200">

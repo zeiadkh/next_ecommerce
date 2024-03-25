@@ -5,14 +5,12 @@ import { cache } from "react";
 import { Metadata } from "next";
 import AddToCart from "@/src/app/cart/AddToCart";
 import { getCart } from "../../cart/cartServer";
-// import { getUser } from "../../layout";
-// import UpdateButton from "@/src/components/UpdateButton";
 
 type productsPage = {
   params: { id: string };
 };
 
-export const productData = cache(async (id: string) => {
+const productData = cache(async (id: string) => {
   const product = await fetch(`${api}/product/${id}`)
     .then((res) => res.json())
     .catch((err) => console.log(err));

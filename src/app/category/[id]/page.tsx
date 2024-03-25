@@ -8,13 +8,13 @@ type categoryProductsPage = {
   params: { id: string };
 };
 
-export const productData = cache(async (id: string) => {
+const productData = cache(async (id: string) => {
   try {
     const product = await fetch(`${api}/category/${id}/product`);
     const respData = await product.json();
     if (!respData.success) return { error: respData.message };
     return respData.message;
-  } catch (error) {
+  } catch (error: any) {
     return { error: error.message };
   }
 });
@@ -22,7 +22,7 @@ export const productData = cache(async (id: string) => {
 
 export default async function CategoryProducts({
   params: { id },
-}: categoryProductsPage) {
+}: categoryProductsPage): Promise<JSX.Element> {
   const productsData = await productData(id);
 
   const products = productsData?.map((product: ProductType) => (

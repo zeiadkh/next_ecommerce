@@ -35,7 +35,7 @@ export default async function order(formData: FormData) {
     if(!respData.success) return {error: respData.message || 'some thing went wrong'}
     if (respData.sucess === false) redirect("../order/failed-payment");
     if (respData.success && payment === "visa")  return {url: respData?.result}
-   } catch (error) {
+   } catch (error: any) {
     return {error: error.message} 
    }
     redirect("../order/successfull-payment");

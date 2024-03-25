@@ -5,6 +5,7 @@ import { api } from "../add-product/page";
 import AdminPage from "../page";
 import { UserType } from "../../layout";
 import CategoryForm from "./CategoryForm";
+import { env } from "@/lib/env";
   
   
   export const metadata: Metadata = {
@@ -17,7 +18,7 @@ import CategoryForm from "./CategoryForm";
 async function getUser(): Promise<UserType> {
   'use server'
   const user = await fetch(`${api}/user`, {
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));

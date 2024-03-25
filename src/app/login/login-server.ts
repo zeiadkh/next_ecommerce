@@ -32,23 +32,9 @@ export async function login(formData: FormData) {
         
       }
       if(!respData.sucess){
-        // console.log(respData)
         return {error: respData.message}
       }
-      // console.log("Request Headers:", response.headers);
-      // const requestBodySize = JSON.stringify({ email, password }).length;
-      // console.log("Request Body Size:", requestBodySize);
-      
-      // if (!respData.succes) {
-      //   
-      // }
-    } catch (error) {
-      // cookies().set("token", "somescatch");
-
-      // console.log("Request Headers:", response.headers);
-      // const requestBodySize = JSON.stringify({ email, password }).length;
-      // console.log("Request Body Size:", requestBodySize);
-      console.error("login error", error);
+    } catch (error:any) {
       return {error: error.message}
     }
     finally{

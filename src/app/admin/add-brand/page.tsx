@@ -10,7 +10,6 @@ import BrandForm from "./BrandForm";
 
 
 
-// export const token = `${process.env.BEARER}${process.env.token}`;
 
 export const metadata: Metadata = {
   title: "Add Brand",

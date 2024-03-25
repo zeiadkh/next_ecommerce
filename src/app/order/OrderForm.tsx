@@ -3,9 +3,7 @@
 import toast from "react-hot-toast";
 import  order  from "./order-server";
 import SubmitBtn from "@/src/components/SubmitBtn";
-import { useEffect, useState } from "react";
-import VisaPage from "./visa-checkout/page";
-import { url } from "inspector";
+import {  useState } from "react";
 import Link from "next/link";
 
 export default function OrderForm(){

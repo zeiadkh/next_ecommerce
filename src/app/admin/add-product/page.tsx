@@ -4,8 +4,8 @@ import { cookies } from "next/headers";
 import AdminPage from "../page";
 import { UserType } from "../../layout";
 import ProductForm from "./ProductForm";
-
-export const api = process.env.API_URL
+import { env } from "@/lib/env";
+export const api = env.API_URL
 
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 async function getUser(): Promise<UserType> {
   "use server";
   const user = await fetch(`${api}/user`, {
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));

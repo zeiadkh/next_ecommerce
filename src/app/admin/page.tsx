@@ -2,10 +2,11 @@ import Link from "next/link";
 import { UserType } from "../layout";
 import { api } from "./add-product/page";
 import { cookies } from "next/headers";
+import { env } from "@/lib/env";
 async function getUser(): Promise<UserType> {
   'use server'
   const user = await fetch(`${api}/user`, {
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));

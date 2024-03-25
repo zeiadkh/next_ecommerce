@@ -66,9 +66,9 @@ export  async function updateProduct(formData: FormData, productId: string) {
   !category && formData.delete("category")
   !subCateory && formData.delete("subCategory")
   !brand && formData.delete("brand")
-  !availableItems && formData.delete("availableItems")
-  defaultImg?.size  ===0 && formData.delete("defaultImg")
-  imgs?.size ===0 && formData.delete("imgs")
+  !availableItems && formData.delete("availableItems");
+  (defaultImg as {size:number})?.size  ===0 && formData.delete("defaultImg");
+  (imgs as {size: number})?.size ===0 && formData.delete("imgs")
 
 
    

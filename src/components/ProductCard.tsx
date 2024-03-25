@@ -4,9 +4,7 @@ import React from "react";
 import { api } from "../app/admin/add-product/page";
 import { UserType } from "../app/layout";
 import { cookies } from "next/headers";
-import UpdateButton from "./UpdateButton";
-import { redirect } from "next/navigation";
-import { link } from "fs";
+import { env } from "@/lib/env";
 
 export type ProductType = {
   
@@ -22,11 +20,10 @@ export type ProductType = {
 async function getUser(): Promise<UserType> {
   "use server";
   const user = await fetch(`${api}/user`, {
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));
-  // if(user.result.role === "admin") redirect("/admin")
   return await user;
 }
 

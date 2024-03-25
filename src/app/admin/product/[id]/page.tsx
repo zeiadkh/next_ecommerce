@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { Metadata } from "next";
 import ProductForm from "../../add-product/ProductForm";
 import ProductCard from "./ProductUpdateCard";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Update Product",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 async function getUser(): Promise<UserType> {
   "use server";
   const user = await fetch(`${api}/user`, {
-    headers: { token: `${process.env.BEARER}${cookies().get("token")?.value}` },
+    headers: { token: `${env.BEARER}${cookies().get("token")?.value}` },
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));

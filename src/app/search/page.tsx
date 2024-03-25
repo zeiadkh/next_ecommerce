@@ -1,5 +1,5 @@
 import { api } from "../admin/add-product/page";
-import ProductCard, { product } from "@/src/components/ProductCard";
+import ProductCard, { ProductType } from "@/src/components/ProductCard";
 interface searchPageProps {
   searchParams: { keyword: string };
 }
@@ -14,7 +14,7 @@ export default async function SearchPage({
   if (data.message === "Product not found")
     return <div className="text-center">No Products Found!</div>;
   const productsData = data.message;
-  const products = productsData.map((product: product) => (
+  const products = productsData.map((product: ProductType) => (
     <ProductCard
       key={product._id}
       _id={product._id}

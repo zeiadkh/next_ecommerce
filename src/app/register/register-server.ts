@@ -32,7 +32,7 @@ export default async function register(formData: FormData) {
     revalidatePath("/");
     revalidatePath('/register')
     
-  } catch (error) {
+  } catch (error: any) {
     return { error: error.message };
   }
   
