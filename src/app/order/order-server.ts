@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { api } from "../admin/add-product/page";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 
 export default async function order(formData: FormData) {
@@ -30,7 +31,7 @@ export default async function order(formData: FormData) {
         ...(payment && { payment }),
       }),
     })
-    
+    revalidatePath("../cart/CartButton")
     const respData = await response.json();
     if(!respData.success) return {error: respData.message || 'some thing went wrong'}
     if (respData.sucess === false) redirect("../order/failed-payment");
