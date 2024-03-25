@@ -1,32 +1,29 @@
-'use client'
+"use client";
 
-import SubmitBtn from "@/src/components/SubmitBtn"
-import register from "./register-server"
+import SubmitBtn from "@/src/components/SubmitBtn";
+import register from "./register-server";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Link from "next/link";
 
-
-
-export default function RegisterForm(){
-  const [success, setSuccess] = useState()
-     async function registerClientAction(formData: FormData){
-        const result = await register(formData);
-        if(!result?.error) {setSuccess(true)}
-        // {result.sucess && toast(result?.message)}
-        console.log(result, "from regForm")
-        result?.error && toast.error(result?.error)
+export default function RegisterForm() {
+  const [success, setSuccess] = useState(false);
+  async function registerClientAction(formData: FormData) {
+    const result = await register(formData);
+    if (!result?.error) {
+      setSuccess(true);
     }
+    result?.error && toast.error(result?.error);
+  }
 
-    return(
-
-        <form action={registerClientAction } className="flex flex-col space-y-5">
-    <div className="flex flex-col space-y-1">
+  return (
+    <form action={registerClientAction} className="flex flex-col space-y-5">
+      <div className="flex flex-col space-y-1">
         <label
           htmlFor="userName"
           className="text-sm font-semibold text-gray-500"
         >
-          userName 
+          userName
         </label>
         <input
           name="userName"
@@ -34,14 +31,10 @@ export default function RegisterForm(){
           id="userName"
           autoFocus
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-          // onChange={(e) => (email.current = e.target.value)}
-          />
+        />
       </div>
       <div className="flex flex-col space-y-1">
-        <label
-          htmlFor="email"
-          className="text-sm font-semibold text-gray-500"
-          >
+        <label htmlFor="email" className="text-sm font-semibold text-gray-500">
           Email address
         </label>
         <input
@@ -50,32 +43,29 @@ export default function RegisterForm(){
           id="email"
           autoFocus
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-          // onChange={(e) => (email.current = e.target.value)}
-          />
+        />
       </div>
       <div className="flex flex-col space-y-1">
         <div className="flex items-center justify-between">
           <label
             htmlFor="password"
             className="text-sm font-semibold text-gray-500"
-            >
+          >
             Password
           </label>
-          
         </div>
         <input
           name="password"
           type="password"
           id="password"
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-          // onChange={(e) => (password.current = e.target.value)}
         />
       </div>
       <div className="flex flex-col space-y-1">
         <label
           htmlFor="confirmPass"
           className="text-sm font-semibold text-gray-500"
-          >
+        >
           confrim Password
         </label>
         <input
@@ -89,7 +79,11 @@ export default function RegisterForm(){
       <div>
         <SubmitBtn className="block w-full">Sign Up</SubmitBtn>
       </div>
-      {success && <Link className="btn btn-success w-fit  self-end" href={"/login"}>Login</Link>}
+      {success && (
+        <Link className="btn btn-success w-fit  self-end" href={"/login"}>
+          Login
+        </Link>
+      )}
     </form>
-      )
+  );
 }

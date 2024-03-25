@@ -36,7 +36,6 @@ export default async function addProduct(formData: FormData) {
       body: formData,
     });
     const respData = await response.json();
-    // console.log(respData);
     if (!respData.sucess) return { error: respData.message };
     return { successMsg: "Product Addded successfully." };
   } catch (error: any) {
@@ -60,7 +59,6 @@ export  async function updateProduct(formData: FormData, productId: string) {
   const availableItems = Number(formData.get("availableItems"));
   const defaultImg = formData.get("defaultImg") ;
   const imgs = formData.get("imgs");
-  // console.log(imgs)
 
   !name && formData.delete("name")
   !price && formData.delete("price")
@@ -69,13 +67,12 @@ export  async function updateProduct(formData: FormData, productId: string) {
   !subCateory && formData.delete("subCategory")
   !brand && formData.delete("brand")
   !availableItems && formData.delete("availableItems")
-  defaultImg?.size ===0 && formData.delete("defaultImg")
+  defaultImg?.size  ===0 && formData.delete("defaultImg")
   imgs?.size ===0 && formData.delete("imgs")
 
 
    
 
-  // console.log(formData, "from server")
 
   formData.delete("$ACTION_ID_7bcbd097157d571165eed6e63652732f3ba62d74");
   try {
@@ -87,11 +84,9 @@ export  async function updateProduct(formData: FormData, productId: string) {
       body: formData,
     });
     const respData = await response.json();
-    // console.log(respData, "from update server");
     if (!respData.sucess) return { error: respData.message };
     return { successMsg: "Product Updated successfully." };
   } catch (error: any) {
-    // console.error("update Product  Error:", error.message);
     return { erro: error?.message };
   } finally {
     revalidatePath(`/admin/product/${productId}`);

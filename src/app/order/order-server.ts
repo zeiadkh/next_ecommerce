@@ -32,7 +32,6 @@ export default async function order(formData: FormData) {
     })
     
     const respData = await response.json();
-    console.log(respData, "what the fuck")
     if(!respData.success) return {error: respData.message || 'some thing went wrong'}
     if (respData.sucess === false) redirect("../order/failed-payment");
     if (respData.success && payment === "visa")  return {url: respData?.result}

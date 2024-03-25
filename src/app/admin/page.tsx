@@ -9,15 +9,11 @@ async function getUser(): Promise<UserType> {
   })
     .then((res) => res.json())
     .catch((error) => console.log("usermenu", error));
-    // console.log(user)
-  // if(user.result.role === "admin") redirect("/admin")
   return await user
 }
 
 export default async function AdminPage() {
   const user: UserType = await getUser()
-  // if (!cookies().get("token")?.value) return new Error("please login");
-  // console.log(cookies().get("token"), "from admin")
     return (
     <header>
        {user?.result?.role === "admin" ? ( 

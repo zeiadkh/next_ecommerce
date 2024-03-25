@@ -19,11 +19,9 @@ export default async function createBrand(formData: FormData) {
       body: formData,
     });
     const respData = await response.json();
-    // console.log(respData)
     if (!respData.sucess) return { error: respData.message };
     return { successMsg: "Brand Created Successfully ✌️" };
   } catch (error: any) {
-    // console.log(error);
     return { error: error?.message };
   } finally {
     revalidatePath("/add-brand");

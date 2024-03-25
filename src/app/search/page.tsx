@@ -14,7 +14,6 @@ export default async function SearchPage({
   if (data.message === "Product not found")
     return <div className="text-center">No Products Found!</div>;
   const productsData = data.message;
-  // console.log(productsData, "from seardh")
   const products = productsData.map((product: product) => (
     <ProductCard
       key={product._id}

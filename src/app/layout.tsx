@@ -45,8 +45,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const user = await getUser()
-  // const userRole = user?.result?.role
-  // console.log(user, "from layout")
   return (
     <html lang="en">
       <body className={inter.className}>

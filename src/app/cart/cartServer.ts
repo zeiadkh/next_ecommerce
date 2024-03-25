@@ -2,39 +2,30 @@
 import { cookies } from "next/headers";
 
 import { revalidatePath } from "next/cache";
-// import { token } from "../add-product/page";
 import { api } from "../admin/add-product/page";
 
-// console.log(token)
-
-// const token: string | any = `BKBKEBKEY__${cookies().get("token")?.value}`;
 export default async function addToCart(productId: string) {
   try {
-    const cartExistance = await getCart()
-    const resp = cartExistance && await fetch(`${api}/cart`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        token: `${process.env.BEARER}${cookies().get("token")?.value}` 
-      },
-      body: JSON.stringify({ pId: productId }),
-    })
+    const cartExistance = await getCart();
+    const resp =
+      cartExistance &&
+      (await fetch(`${api}/cart`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          token: `${process.env.BEARER}${cookies().get("token")?.value}`,
+        },
+        body: JSON.stringify({ pId: productId }),
+      }));
     const respData = await resp.json();
-    console.log(respData, "from add cart")
-    if(!respData.result) return {error: "Verfiy Your email To add Products to your Cart"}
-    // return resp;
-
+    if (!respData.result)
+      return { error: "Verfiy Your email To add Products to your Cart" };
   } catch (error) {
-    console.log(error)
-    return {error: error.message}
-
+    return { error: error.message };
   }
-    // .then((res) => res.json())
-    // .catch((err) => {console.log(err);});
-    
+
   revalidatePath("/");
-  // revalidatePath("");
 }
 
 export async function getCart() {
@@ -44,8 +35,7 @@ export async function getCart() {
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
-  // console.log(resp);
-  if (resp.sucess === false) return {error:resp.message};
+  if (resp.sucess === false) return { error: resp.message };
 
   revalidatePath("/cart");
   revalidatePath("./CartButton");
@@ -77,9 +67,8 @@ export async function deleteCart(productId: string) {
     .then((res) => res.json())
     .catch((err) => console.log(err));
   revalidatePath("cart");
-    revalidatePath("./CartButton");
+  revalidatePath("./CartButton");
 
-  // revalidatePath("cartButton");
   return resp;
 }
 

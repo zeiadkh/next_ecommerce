@@ -24,7 +24,6 @@ export default async function createCategory(formData: FormData) {
       body: formData,
     })
     const respData = await response.json();
-    // console.log( respData, "from category")
     if (!respData.sucess) {
       return {error: respData.message};
     }

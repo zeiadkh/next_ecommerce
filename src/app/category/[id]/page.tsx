@@ -1,10 +1,7 @@
-import { notFound } from "next/navigation";
 import { api } from "../../admin/add-product/page";
 import { cache } from "react";
-import { Metadata } from "next";
 import ProductCard from "@/src/components/ProductCard";
-import { product } from "@/src/components/ProductCard";
-import Pagination from "@/src/components/Pagination";
+import { productType } from "@/src/components/ProductCard";
 import { CategoriesTabs } from "../../page";
 
 type categoryProductsPage = {
@@ -16,31 +13,19 @@ export const productData = cache(async (id: string) => {
     const product = await fetch(`${api}/category/${id}/product`);
     const respData = await product.json();
     if (!respData.success) return { error: respData.message };
-    // console.log(respData, "from procut of a cat");
     return respData.message;
   } catch (error) {
-    // console.log(error, "error from fetching category products");
     return { error: error.message };
   }
 });
 
-//   export async function generateMetadata({
-//       params: { id },
-//     }: categoryProductsPage): Promise<Metadata> {
-//         return {
-//             title: product.message.name,
-//             description: product.message.description,
-//             openGraph: { images: [product.message.defaultImg.url] },
-//         };
-//     }
 
 export default async function CategoryProducts({
   params: { id },
 }: categoryProductsPage) {
   const productsData = await productData(id);
-  // console.log(productsData);
 
-  const products = productsData?.map((product: product) => (
+  const products = productsData?.map((product: productType) => (
     <ProductCard
       key={product._id}
       _id={product._id}

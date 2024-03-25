@@ -27,7 +27,6 @@ export default async function register(formData: FormData) {
       body: JSON.stringify({ email, password, userName, confirmPass }),
     });
     const respData = await response.json();
-    console.log(respData, "from register server");
     if(!respData.succes) return {error: respData.message}
     
     revalidatePath("/");

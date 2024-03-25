@@ -29,7 +29,6 @@ export default function ProductForm({
        result = await updateProduct(formData, productId || "");
       
     }
-    // console.log(result);
     if(result?.successMsg) toast(result.successMsg as string);
     if (result?.error) toast.error(result.error);
   }

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 
 export default function Registerpage() {
   
-  // console.log(cookies().get("token"));
   return (
     <div className="flex min-h-screen items-center p-4 lg:justify-center">
       <div className="max flex flex-col overflow-hidden rounded-md bg-white shadow-lg md:flex-1 md:flex-row lg:max-w-screen-md">

@@ -1,6 +1,6 @@
 import { api } from "./admin/add-product/page";
 import ProductCard from "../components/ProductCard";
-// import  product  from "../components/ProductCard";
+import  {ProductType}  from "../components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import Pagination from "../components/Pagination";
@@ -8,7 +8,6 @@ import CategoryProducts from "./category/[id]/page";
 export interface HomeProps {
   searchParams: { page: string; limit: string };
 }
-// console.log(api)
 
 
 type Category = {
@@ -75,12 +74,10 @@ export default async function Home({
   const totalItemCount = await getAllProductsNumber();
   const totalPages = Math.ceil((totalItemCount - heroCount) / pageSize);
   const productsData = data.message;
-  // const categories = await getCategories()
-  // console.log(categories)
 
   const products = (
     currentPage === 1 ? productsData.slice(1) : productsData
-  ).map((product: product) => (
+  ).map((product: ProductType) => (
     <ProductCard
       key={product._id}
       _id={product._id}
@@ -95,7 +92,6 @@ export default async function Home({
 
   return (
     <>
-      {/* <CategoryProducts /> */}
 
       <CategoriesTabs id={""} />
       

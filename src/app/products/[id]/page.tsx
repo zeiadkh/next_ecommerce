@@ -36,11 +36,6 @@ export default async function ProductPage({ params: { id } }: productsPage) {
   const product = await productData(id);
 
   const cart = await getCart();
-  // console.log(cart);
-  // if(cart?.success) return true
-  // return false
-
-  // console.log(await getCart(), "cartExistance");
   return (
     <section className="flex flex-col flex-wrap justify-center gap-4 bg-base-300 p-5 lg:flex-row">
       <Image

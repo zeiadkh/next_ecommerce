@@ -12,7 +12,6 @@ export const metadata:Metadata = {
 
 export default async function CartPage() {
   let cart = await getCart();
-  console.log(cart, 'why')
   let cartProducts = cart?.result?.products;
   return (
     <div>

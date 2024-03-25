@@ -7,7 +7,6 @@ import SubmitBtn from "@/src/components/SubmitBtn";
 export default function CategoryForm(){
     async function clientAction(formData: FormData) {
         const result = await createCategory(formData);
-        // console.log(result);
         if(result?.successMsg) toast(result.successMsg as string);
         if (result?.error) toast.error(result.error);
       }

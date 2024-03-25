@@ -19,7 +19,6 @@ export default async function forgetPassword(formData: FormData) {
     const respData = await response.json();
     if (!respData.success) return { error: respData.message };
 } catch (error: any) {
-    // console.log(error, "from forget server");
     return { error: error.message };
 }
 redirect("/reset-pass");

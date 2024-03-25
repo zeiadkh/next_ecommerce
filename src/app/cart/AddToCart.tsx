@@ -13,21 +13,14 @@ type AddToCartPorpsType = {
 export default function AddToCart({ productId }: AddToCartPorpsType) {
   async function addingProduct(productId: string){
     const adding = await addToCart(productId)
-    console.log(adding, "adding product")
     !adding?.error && setSucess(true)
     adding?.error && toast.error("You Must confirm Your email first")
     
   
    }
-  console.log('aggggg')
   
-  // console.log(addingProduct(productId))
   const [isPending, startTransition] = useTransition();
   const [success, setSucess] = useState(false);
-  // useEffect(() => {
-  //   const span = document.querySelector("span")
-  //   span?span.remove(): ''
-  // }, [isPending])
   return (
     <>
       <button

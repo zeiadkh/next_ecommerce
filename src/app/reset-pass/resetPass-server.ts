@@ -20,10 +20,8 @@ export default async function resetPass(formData: FormData){
                 body: JSON.stringify({ password, cPassword, forgetCode }),
               })
               const respData = await response.json();
-              // console.log(respData)
               if(!respData.success) return {error: respData.message}
         } catch (error) {
-            // console.log(error, 'from reset server catch')
             return {error: error.message}
         }
         //   console.log(response)
