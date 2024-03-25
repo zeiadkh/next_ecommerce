@@ -56,7 +56,7 @@ async function getBrands(): Promise<CategoryType> {
   return await brands;
 }
 
-export const productData = async (id: string) => {
+const productData = async (id: string) => {
   const product = await fetch(`${api}/product/${id}`)
     .then((res) => res.json())
     .catch((err) => console.log(err));
