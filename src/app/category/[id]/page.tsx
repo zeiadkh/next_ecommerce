@@ -1,7 +1,7 @@
 import { api } from "../../admin/add-product/page";
 import { cache } from "react";
 import ProductCard from "@/src/components/ProductCard";
-import { productType } from "@/src/components/ProductCard";
+import { ProductType } from "@/src/components/ProductCard";
 import { CategoriesTabs } from "../../page";
 
 type categoryProductsPage = {
@@ -25,7 +25,7 @@ export default async function CategoryProducts({
 }: categoryProductsPage) {
   const productsData = await productData(id);
 
-  const products = productsData?.map((product: productType) => (
+  const products = productsData?.map((product: ProductType) => (
     <ProductCard
       key={product._id}
       _id={product._id}
