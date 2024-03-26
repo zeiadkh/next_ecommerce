@@ -157,12 +157,12 @@ export default async function Navbar({ user }: { user: UserType }) {
 
       {!user?.success && (
         <div
-          className="alert alert-error mx-auto my-6 flex w-[85%] justify-center sm:w-[50%]"
+          className="alert alert-error max-w-fit mx-auto my-6 flex w-[85%] justify-center sm:w-[50%]"
           role="alert"
         >
+          <Link href={"/login"} >
           You are not registered,
-          <Link href={"/login"} className="hover:underline ">
-            Try to Login.
+            <span className="hover:underline ">Try to Login.</span>
           </Link>
         </div>
       )}

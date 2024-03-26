@@ -41,7 +41,7 @@ export async function CategoriesTabs({ id="" }: { id: string }) {
     <>
     <div
       role="tablist"
-      className="m-8 tabs-boxed tabs flex flex-wrap justify-evenly "
+      className="m-8 tabs-boxed tabs flex flex-wrap justify-evenly gap-4 p-4"
     >
       
       {categories?.map((cat: Category) => (
@@ -49,7 +49,7 @@ export async function CategoriesTabs({ id="" }: { id: string }) {
           key={cat?._id}
           href={`/category/${cat?._id}`}
           role="tab"
-          className={`tab hover:tab-active ${
+          className={`tab hover:tab-active   min-w-[124px] border-b border-primary  ${
             cat._id == id ? "tab-active" : ""
           } text-lg capitalize `}
         >

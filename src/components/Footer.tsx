@@ -6,7 +6,7 @@ import logo from "@/src/assets/logo.png"
 export default function Footer() {
   return (
     <footer className="bg-neutral p-10 text-neutral-content ">
-        <div className="footer grid-rows-2 ">
+        {/* <div className="footer grid-rows-2 ">
         <nav>
         <header className="footer-title">Services</header>
         <a className="link-hover link">Branding</a>
@@ -48,7 +48,7 @@ export default function Footer() {
         <a className="link-hover link">iPhone</a>
         <a className="link-hover link">Android</a>
       </nav>
-        </div>
+        </div> */}
       
       <aside className="flex flex-1 grid-flow-col items-center mt-6 justify-center">
         {/* <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-center"> */}
