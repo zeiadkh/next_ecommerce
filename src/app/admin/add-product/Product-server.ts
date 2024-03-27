@@ -90,6 +90,8 @@ export  async function updateProduct(formData: FormData, productId: string) {
     return { erro: error?.message };
   } finally {
     revalidatePath(`/admin/product/${productId}`);
+    revalidatePath("/")
+    revalidatePath(`/products/${productId}`)
   }
 }
 

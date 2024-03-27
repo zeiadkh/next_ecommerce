@@ -5,7 +5,7 @@ import logo from "@/src/assets/logo.png"
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral p-10 text-neutral-content ">
+    <footer className="bg-base-100 p-10 text-neutral-content ">
         {/* <div className="footer grid-rows-2 ">
         <nav>
         <header className="footer-title">Services</header>

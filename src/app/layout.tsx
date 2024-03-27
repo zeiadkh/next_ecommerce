@@ -42,7 +42,7 @@ export default async function RootLayout({
   const user = await getUser()
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`inter.className bg-[#190f1c]` }>
        
           <Navbar user={user}/>
            

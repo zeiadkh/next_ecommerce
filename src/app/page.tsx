@@ -41,7 +41,7 @@ export async function CategoriesTabs({ id="" }: { id: string }) {
     <>
     <div
       role="tablist"
-      className="m-8 tabs-boxed tabs flex flex-wrap justify-evenly gap-4 p-4"
+      className="m-8 tabs-boxed tabs flex flex-wrap justify-evenly gap-4 p-4 w-full mx-auto"
     >
       
       {categories?.map((cat: Category) => (

@@ -10,14 +10,14 @@ type productsPage = {
   params: { id: string };
 };
 
-const productData = cache(async (id: string) => {
-  const product = await fetch(`${api}/product/${id}`)
+const productData = async (id: string) => {
+  const product = await fetch(`${api}/product/${id}`, {next: {revalidate: 30000}})
     .then((res) => res.json())
     .catch((err) => console.log(err));
 
   if (!product.success) return notFound();
   return product;
-});
+};
 
 export async function generateMetadata({
   params: { id },

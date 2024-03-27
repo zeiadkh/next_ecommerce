@@ -14,38 +14,31 @@ export default function Form() {
   }
   
   return (
-    <form action={clientAction} className="flex flex-col space-y-5">
+    <form action={clientAction} className="flex flex-col space-y-5 text-black max-w-[90%] mx-auto text-left ">
       <div className="flex flex-col space-y-1">
-        <label htmlFor="email" className="text-sm font-semibold text-gray-500">
-          Email address
-        </label>
         <input
           name="email"
           type="email"
           id="email"
           autoFocus
+          placeholder="Enter Your Email"
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
           // onChange={(e) => (email.current = e.target.value)}
         />
       </div>
       <div className="flex flex-col space-y-1">
         <div className="flex items-center justify-between">
-          <label
-            htmlFor="password"
-            className="text-sm font-semibold text-gray-500"
-          >
-            Password
-          </label>
         </div>
         <input
           name="password"
           type="password"
           id="password"
+          placeholder="Enter Your Password"
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
         />
         <Link
           href="/forget-pass"
-          className="text-sm text-blue-600 hover:underline focus:text-blue-800"
+          className="text-sm text-gray-400 hover:underline focus:text-gray-500"
         >
           Forgot Password?
         </Link>
@@ -54,7 +47,7 @@ export default function Form() {
         <SubmitBtn className="block w-full">Log In</SubmitBtn>
         <Link
           href={"/register"}
-          className="mt-4 text-right block text-sm text-blue-600 hover:underline focus:text-blue-800"
+          className="mt-4 text-right block text-sm text-gray-400 hover:underline  focus:text-gray-500"
 
         >
           Don&apos;t have Account?

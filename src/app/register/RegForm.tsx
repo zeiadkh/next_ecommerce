@@ -17,62 +17,50 @@ export default function RegisterForm() {
   }
 
   return (
-    <form action={registerClientAction} className="flex flex-col space-y-5">
+    <form action={registerClientAction} className="flex flex-col space-y-5 text-black mx-auto">
       <div className="flex flex-col space-y-1">
-        <label
-          htmlFor="userName"
-          className="text-sm font-semibold text-gray-500"
-        >
-          userName
-        </label>
+        
         <input
           name="userName"
           type="userName"
           id="userName"
+          placeholder="User Name"
           autoFocus
-          className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+          className="rounded-lg border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
         />
       </div>
       <div className="flex flex-col space-y-1">
-        <label htmlFor="email" className="text-sm font-semibold text-gray-500">
-          Email address
-        </label>
+        
         <input
           name="email"
           type="email"
           id="email"
+          placeholder="Enter Your Email"
           autoFocus
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
         />
       </div>
       <div className="flex flex-col space-y-1">
         <div className="flex items-center justify-between">
-          <label
-            htmlFor="password"
-            className="text-sm font-semibold text-gray-500"
-          >
-            Password
-          </label>
+          
+          
         </div>
         <input
           name="password"
           type="password"
           id="password"
+          placeholder="Enter Your new Password"
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
         />
       </div>
       <div className="flex flex-col space-y-1">
-        <label
-          htmlFor="confirmPass"
-          className="text-sm font-semibold text-gray-500"
-        >
-          confrim Password
-        </label>
+        
         <input
           name="confirmPass"
           type="password"
           id="confirmPass"
           autoFocus
+          placeholder="Confirm your password"
           className="rounded border border-gray-300 px-4 py-2 transition duration-300 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
         />
       </div>

@@ -23,7 +23,7 @@ export default async function Navbar({ user }: { user: UserType }) {
           <div className="flex-1">
             <Link
               href="/"
-              className="btn btn-ghost flex items-center gap-2 text-xl"
+              className="btn btn-ghost flex items-center gap-2 sm:text-xl"
             >
               <Image
                 className=""
