@@ -18,7 +18,7 @@ type Category = {
 };
 
 async function getAllProductsNumber(): Promise<number> {
-  const data = await fetch(`${api}/product/all/`, {}).then((res) => res.json());
+  const data = await fetch(`${api}/product/all/`, {next: {revalidate: 1800}}).then((res) => res.json());
 
   return data.message.length;
 }

@@ -11,7 +11,7 @@ type productsPage = {
 };
 
 const productData = async (id: string) => {
-  const product = await fetch(`${api}/product/${id}`, {next: {revalidate: 30000}})
+  const product = await fetch(`${api}/product/${id}`, {next: {revalidate: 1800}})
     .then((res) => res.json())
     .catch((err) => console.log(err));
 
