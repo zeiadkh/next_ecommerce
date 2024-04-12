@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Description:
+I recently worked on an e-commerce application that aimed to provide a seamless shopping experience for users. The app was built using modern web technologies to ensure responsiveness, speed, and ease of use. It included essential features of an e-commerce platform, such as product browsing, cart management, secure payments, and order management.
+## LiveDemo: https://next-ecommerce-five-mu.vercel.app/
 
-## Getting Started
+## BackendRepo: [https://next-ecommerce-five-mu.vercel.app/](https://github.com/zeiadkh/E-commerce)
+![Portfolio Website](https://res.cloudinary.com/dtp47o37p/image/upload/v1712935855/Screenshot_2024-04-11_031251_c5fbkq.png)
+### Features:
+1. Stripe Payment Integration:
+   - Enabled customers to securely make payments using credit/debit cards.
+   - Implemented Stripe's API to handle payment processing and transactions.
 
-First, run the development server:
+2. Order Management:
+   - Users could easily place orders for products they selected.
+   - Each order was assigned a unique invoice, detailing the products, prices, and total amount.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. Email Notifications:
+   - Automatic generation of invoices for each order.
+   - Sent order invoices to users via email for their reference and record-keeping.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. User Authentication (JWT):
+   - Implemented JWT (JSON Web Tokens) for secure user authentication.
+   - Users could create accounts, log in securely, and manage their profiles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Basic E-commerce Functionality:
+   - Product browsing with categories and search functionality.
+   - Adding products to the cart and managing the cart items.
+   - Checkout process with order summary and shipping details.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Tools and Technologies Used:
+#### - Frontend Development:
+  - Next.js:  React framework for building fast and optimized web applications.
+  - Tailwind CSS:  Utility-first CSS framework for styling with ease and flexibility.
+  - Daisy UI:  Tailwind CSS component library for pre-designed UI components.
 
-## Learn More
+#### - Backend Development:
+  - Node.js: JavaScript runtime for building scalable and efficient server-side applications.
+  - Express.js: Web application framework for Node.js for creating RESTful APIs.
+  - MongoDB: NoSQL database for storing product information, user data, and orders.
+  - Payment Integration:
+      - Stripe: Payment processing platform for handling secure and reliable online transactions.
 
-To learn more about Next.js, take a look at the following resources:
+  - Authentication:
+      - JSON Web Tokens (JWT): Standard for securely transmitting information between parties as JSON objects.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In summary, the e-commerce app I worked on was a comprehensive platform built with Next.js and Tailwind CSS on the frontend, Node.js and MongoDB on the backend,
+and integrated with Stripe for secure payments. It provided users with a smooth shopping experience, complete with order management, email notifications, 
+and secure authentication using JWT. The project aimed to deliver a modern and user-friendly e-commerce solution while ensuring scalability, security, and reliability.
