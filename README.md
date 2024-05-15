@@ -2,7 +2,7 @@
 I recently worked on an e-commerce application that aimed to provide a seamless shopping experience for users. The app was built using modern web technologies to ensure responsiveness, speed, and ease of use. It included essential features of an e-commerce platform, such as product browsing, cart management, secure payments, and order management.
 ## LiveDemo: https://next-ecommerce-five-mu.vercel.app/
 
-## BackendRepo: [https://next-ecommerce-five-mu.vercel.app/](https://github.com/zeiadkh/E-commerce)
+## BackendRepo: [https://github.com/zeiadkh/E-commerce](https://github.com/zeiadkh/E-commerce)
 ![Portfolio Website](https://res.cloudinary.com/dtp47o37p/image/upload/v1712935855/Screenshot_2024-04-11_031251_c5fbkq.png)
 ### Features:
 1. Stripe Payment Integration:
